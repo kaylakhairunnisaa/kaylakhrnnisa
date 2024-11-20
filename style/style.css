@@ -1,0 +1,354 @@
+/* =======================
+   Variabel Global
+======================= */
+:root {
+  --primary-bg: #ffffff;         /* Warna latar utama (putih bersih) */
+  --secondary-bg: #fce4ec;       /* Warna latar tambahan (pink pastel lembut) */
+  --text-color: #333333;         /* Warna teks utama (abu-abu gelap) */
+  --highlight-color: #d81b60;    /* Warna elemen utama (pink gelap) */
+  --cta-color: #ff4081;          /* Warna tombol CTA (pink terang) */
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Warna bayangan lembut */
+  --transition-speed: 0.3s;      /* Kecepatan transisi */
+  
+  --dark-bg: #1c1c1c;            /* Warna latar gelap (hitam) */
+  --dark-secondary-bg: #333333;  /* Warna latar tambahan gelap (abu-abu gelap) */
+  --dark-text-color: #f8bbd0;    /* Warna teks gelap (pink sangat muda) */
+  --dark-highlight-color: #ff80ab; /* Warna elemen utama gelap (pink cerah) */
+}
+
+/* Gaya untuk mode gelap */
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .main-content,
+body.dark-mode .sidebar {
+  background-color: var(--dark-secondary-bg);
+}
+
+body.dark-mode .cta-button {
+  background-color: var(--dark-highlight-color);
+}
+
+/* =======================
+   Reset dan Global
+======================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+  background-color: var(--primary-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 50%;
+  height: auto;
+  display: block;
+}
+
+/* Elemen link */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-speed);
+}
+
+a:hover {
+  color: var(--cta-color);
+}
+
+/* =======================
+   Layout Utama
+======================= */
+main {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+/* =======================
+   Header
+======================= */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: var(--highlight-color);
+  color: var(--primary-bg);
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logo-container figcaption {
+  margin-left: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-bg);
+}
+
+/* Menu Navigasi */
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.menu ul li a {
+  color: var(--primary-bg);
+  font-weight: bold;
+  transition: color var(--transition-speed);
+}
+
+.menu ul li a:hover {
+  color: var(--cta-color);
+}
+
+/* =======================
+   Konten Utama
+======================= */
+.main-content {
+  flex: 3;
+  background-color: var(--secondary-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--shadow-color);
+  transition: box-shadow var(--transition-speed);
+}
+
+.main-content:hover {
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.info-box {
+  background-color: var(--primary-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--shadow-color);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.info-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--highlight-color);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.responsive-image {
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+/* Tombol CTA */
+.cta-button {
+  display: inline-block;
+  background-color: var(--cta-color);
+  color: var(--primary-bg);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 2px 4px var(--shadow-color);
+  transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.cta-button:hover {
+  background-color: #1e90ff;
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+/* =======================
+   Carousel Wrapper
+======================= */
+.carousel {
+  display: flex;
+  overflow: hidden;
+  width: 100%; 
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-item img{
+  width: 50%;
+  border: 1px solid var(--highlight-color);
+}
+
+/* Tombol Navigasi */
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-button {
+  background-color: var(--cta-color);
+  color: var(--primary-bg);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px var(--shadow-color);
+  transition: background-color var(--transition-speed);
+}
+
+.nav-button:hover {
+  background-color: #1e90ff;
+}
+
+.nav-button.prev {
+  position: absolute;
+  left: 10px;
+}
+
+.nav-button.next {
+  position: absolute;
+  right: 10px;
+}
+
+/* =======================
+   Sidebar
+======================= */
+.sidebar {
+  flex: 1;
+  background-color: var(--primary-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.profile-photo img {
+  width: 100%;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.profile-details table {
+  width: 100%;
+  font-size: 0.9rem;
+  border-spacing: 0 5px;
+}
+
+.profile-details td {
+  padding: 5px;
+  vertical-align: top;
+}
+
+.profile-details td:first-child {
+  font-weight: bold;
+}
+
+/* =======================
+   Footer
+======================= */
+footer {
+  background-color: var(--highlight-color);
+  color: var(--primary-bg);
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 0.8rem;
+  box-shadow: 0 -2px 4px var(--shadow-color);
+}
+
+/* =======================
+   Efek Hover
+======================= */
+.info-box:hover, 
+.sidebar:hover {
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+/* =======================
+   Responsif
+======================= */
+@media screen and (max-width: 768px) {
+  .top-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  main {
+    flex-direction: column;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu ul li {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .info-box {
+    padding: 15px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .cta-button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .sidebar{
+    order: -1;
+  }
+
+  footer {
+    font-size: 0.7rem;
+  }
+}
